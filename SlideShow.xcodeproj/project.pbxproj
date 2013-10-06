@@ -22,6 +22,8 @@
 		940DC2A31801FEE50098C0CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940DC2821801FEE40098C0CE /* UIKit.framework */; };
 		940DC2AB1801FEE50098C0CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 940DC2A91801FEE50098C0CE /* InfoPlist.strings */; };
 		940DC2AD1801FEE50098C0CE /* SlideShowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940DC2AC1801FEE50098C0CE /* SlideShowTests.m */; };
+		940DC2B81801FEFB0098C0CE /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = 940DC2B71801FEFB0098C0CE /* Slide.m */; };
+		940DC2BB1801FF110098C0CE /* Slideshow.m in Sources */ = {isa = PBXBuildFile; fileRef = 940DC2BA1801FF110098C0CE /* Slideshow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		940DC2A81801FEE50098C0CE /* SlideShowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SlideShowTests-Info.plist"; sourceTree = "<group>"; };
 		940DC2AA1801FEE50098C0CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		940DC2AC1801FEE50098C0CE /* SlideShowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideShowTests.m; sourceTree = "<group>"; };
+		940DC2B61801FEFB0098C0CE /* Slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slide.h; sourceTree = "<group>"; };
+		940DC2B71801FEFB0098C0CE /* Slide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slide.m; sourceTree = "<group>"; };
+		940DC2B91801FF110098C0CE /* Slideshow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slideshow.h; sourceTree = "<group>"; };
+		940DC2BA1801FF110098C0CE /* Slideshow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slideshow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,10 @@
 				940DC2971801FEE40098C0CE /* ViewController.m */,
 				940DC2991801FEE40098C0CE /* Images.xcassets */,
 				940DC2851801FEE40098C0CE /* Supporting Files */,
+				940DC2B61801FEFB0098C0CE /* Slide.h */,
+				940DC2B71801FEFB0098C0CE /* Slide.m */,
+				940DC2B91801FF110098C0CE /* Slideshow.h */,
+				940DC2BA1801FF110098C0CE /* Slideshow.m */,
 			);
 			path = SlideShow;
 			sourceTree = "<group>";
@@ -256,6 +266,8 @@
 				940DC2981801FEE40098C0CE /* ViewController.m in Sources */,
 				940DC28F1801FEE40098C0CE /* AppDelegate.m in Sources */,
 				940DC28B1801FEE40098C0CE /* main.m in Sources */,
+				940DC2B81801FEFB0098C0CE /* Slide.m in Sources */,
+				940DC2BB1801FF110098C0CE /* Slideshow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

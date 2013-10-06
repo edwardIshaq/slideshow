@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@class Slideshow;
 
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@property (strong,nonatomic) Slideshow *presentation;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

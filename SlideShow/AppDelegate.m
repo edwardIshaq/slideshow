@@ -7,11 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "Slideshow.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.presentation = [[Slideshow alloc] init];
+    [self.presentation requestSlideshow];
     // Override point for customization after application launch.
     return YES;
 }
