@@ -65,6 +65,7 @@
 }
 
 - (void)slideshowDidFinishLoading:(Slideshow*)slideshow {
+    self.titleLabel.text = self.mainSlideShow.deckName;
     [self.collectionView reloadData];
 }
 @end

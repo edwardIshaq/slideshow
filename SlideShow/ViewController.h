@@ -12,6 +12,7 @@
 @interface ViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SlideshowDelegate>
 
 @property (retain, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 //Should be dynamically selected by user
 @property (retain, nonatomic) Slideshow *mainSlideShow;
