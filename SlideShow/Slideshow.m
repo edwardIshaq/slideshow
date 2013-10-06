@@ -108,28 +108,26 @@ static NSString * const kSlide = @"slide";
     }
 }
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    if (self.slideshowDelegate && [self.slideshowDelegate conformsToProtocol:@protocol(SlideshowDelegate)]) {
-        [self downloadSlideThumbs];
-        [self.slideshowDelegate slideshowDidFinishLoading:self];
-    }
+    [self downloadSlideThumbs];
+    
 }
 
 
 - (void)downloadThumb:(NSURL*)thumbURL forSlide:(Slide*)slide {
     NSURLRequest *request = [NSURLRequest requestWithURL:thumbURL];
-    NSError *error = nil;
-    NSHTTPURLResponse *response = nil;
-
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-//    NSLog(@"%@",response);
-     slide.thumbImage = [UIImage imageWithData:data];
-//    [NSURLConnection sendAsynchronousRequest:request queue:self.networkQ completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-//        if (error) {
-//            NSLog(@"URL request failed, Do something about it");
-//            return;
-//        }
-//        slide.thumbImage = [UIImage imageWithData:data];
-//    }];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:self.networkQ completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+        if (error) {
+            NSLog(@"URL request failed, Do something about it");
+            return;
+        }
+        slide.thumbImage = [UIImage imageWithData:data];
+        if (self.slideshowDelegate && [self.slideshowDelegate conformsToProtocol:@protocol(SlideshowDelegate)]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.slideshowDelegate slideshowDidFinishLoading:self];
+            });
+        }
+    }];
 }
 - (void)downloadSlideThumbs {
     for (Slide* slide in self.slides) {
