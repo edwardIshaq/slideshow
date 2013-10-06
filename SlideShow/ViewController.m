@@ -60,7 +60,10 @@
     return 1;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    Slide *slide = [self.mainSlideShow.slides objectAtIndex:indexPath.row];
+    if (slide.size.width && slide.size.height) {
+        return slide.size;
+    }//else
     return CGSizeMake(204, 204);
 }
 
