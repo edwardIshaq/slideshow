@@ -7,23 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@protocol SlideshowDelegate;
 @class Slide;
 
 @interface Slideshow : NSObject <NSXMLParserDelegate>
 
-//Need to make private
-@property (nonatomic, retain) NSOperationQueue *networkQ;
-@property (nonatomic) NSMutableString *currentParsedCharacterData;
-@property BOOL accumulatingParsedCharacterData;
-@property (nonatomic, retain) Slide* currentSlide;
-
-@property (retain, nonatomic) NSString* imgURL;
-@property (retain, nonatomic) NSString* thumbURL;
 @property (retain, nonatomic) NSString *deckName;
-
 @property (retain, nonatomic) NSMutableArray *slides;
-
+@property (assign) id<SlideshowDelegate> slideshowDelegate;
 - (void)requestSlideshow;
+- (void)downloadSlideThumbs;
+@end
+
+
+@protocol SlideshowDelegate <NSObject>
+- (void)slideshowDidFinishLoading:(Slideshow*)slideshow;
+
 
 @end

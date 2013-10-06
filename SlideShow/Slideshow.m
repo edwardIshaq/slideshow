@@ -11,9 +11,19 @@
 
 #import <Foundation/Foundation.h>
 
+@interface Slideshow ()
+@property (nonatomic, retain) NSOperationQueue *networkQ;
+@property (nonatomic) NSMutableString *currentParsedCharacterData;
+@property BOOL accumulatingParsedCharacterData;
+@property (nonatomic, retain) Slide* currentSlide;
+
+@property (retain, nonatomic) NSString* imgURL;
+@property (retain, nonatomic) NSString* thumbURL;
+
+
+@end
 
 @implementation Slideshow
-
 - (id)init{
     self = [super init];
     if (self) {
@@ -48,7 +58,7 @@ static NSString * const kdeckName = @"deck_name";
 static NSString * const kSlide = @"slide";
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict {
-    NSLog(@"Started: elementName: %@",elementName);
+//    NSLog(@"Started: elementName: %@",elementName);
     if ([elementName isEqualToString:kSlideshow]) {
         
     }
@@ -66,7 +76,7 @@ static NSString * const kSlide = @"slide";
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    NSLog(@"Ended: elementName: %@",elementName);
+//    NSLog(@"Ended: elementName: %@",elementName);
     if ([elementName isEqualToString:kimgURL]) {
         self.imgURL = [NSString stringWithString:self.currentParsedCharacterData];
         self.currentParsedCharacterData = [NSMutableString new];
@@ -82,7 +92,6 @@ static NSString * const kSlide = @"slide";
     else if ([elementName isEqualToString:kSlide]) {
         [self.slides addObject:self.currentSlide];
         self.currentSlide = nil;
-        NSLog(@"%@", self.slides);
     }
     
     self.accumulatingParsedCharacterData = NO;
@@ -98,5 +107,34 @@ static NSString * const kSlide = @"slide";
         [self.currentParsedCharacterData appendString:string];
     }
 }
+- (void)parserDidEndDocument:(NSXMLParser *)parser {
+    if (self.slideshowDelegate && [self.slideshowDelegate conformsToProtocol:@protocol(SlideshowDelegate)]) {
+        [self downloadSlideThumbs];
+        [self.slideshowDelegate slideshowDidFinishLoading:self];
+    }
+}
 
+
+- (void)downloadThumb:(NSURL*)thumbURL forSlide:(Slide*)slide {
+    NSURLRequest *request = [NSURLRequest requestWithURL:thumbURL];
+    NSError *error = nil;
+    NSHTTPURLResponse *response = nil;
+
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//    NSLog(@"%@",response);
+     slide.thumbImage = [UIImage imageWithData:data];
+//    [NSURLConnection sendAsynchronousRequest:request queue:self.networkQ completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
+//        if (error) {
+//            NSLog(@"URL request failed, Do something about it");
+//            return;
+//        }
+//        slide.thumbImage = [UIImage imageWithData:data];
+//    }];
+}
+- (void)downloadSlideThumbs {
+    for (Slide* slide in self.slides) {
+        NSURL *thumbURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.thumbURL, slide.code]];
+        [self downloadThumb:thumbURL forSlide:slide];
+    }
+}
 @end

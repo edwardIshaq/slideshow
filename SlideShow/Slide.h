@@ -16,4 +16,7 @@
 @property CGSize size;
 @property CGSize origSize;
 
+@property (retain, nonatomic) UIImage *thumbImage;
+@property (retain, nonatomic) UIImage *origImage;
+
 @end

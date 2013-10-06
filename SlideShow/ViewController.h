@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Slideshow.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SlideshowDelegate>
 
+@property (retain, nonatomic) IBOutlet UICollectionView *collectionView;
+
+//Should be dynamically selected by user
+@property (retain, nonatomic) Slideshow *mainSlideShow;
 @end
+

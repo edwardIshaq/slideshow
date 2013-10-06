@@ -24,6 +24,8 @@
 		940DC2AD1801FEE50098C0CE /* SlideShowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940DC2AC1801FEE50098C0CE /* SlideShowTests.m */; };
 		940DC2B81801FEFB0098C0CE /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = 940DC2B71801FEFB0098C0CE /* Slide.m */; };
 		940DC2BB1801FF110098C0CE /* Slideshow.m in Sources */ = {isa = PBXBuildFile; fileRef = 940DC2BA1801FF110098C0CE /* Slideshow.m */; };
+		940DC2BE180210750098C0CE /* SimpleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 940DC2BD180210750098C0CE /* SimpleCell.m */; };
+		940DC2C0180210D30098C0CE /* placeHolder.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 940DC2BF180210D30098C0CE /* placeHolder.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,9 @@
 		940DC2B71801FEFB0098C0CE /* Slide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slide.m; sourceTree = "<group>"; };
 		940DC2B91801FF110098C0CE /* Slideshow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slideshow.h; sourceTree = "<group>"; };
 		940DC2BA1801FF110098C0CE /* Slideshow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slideshow.m; sourceTree = "<group>"; };
+		940DC2BC180210750098C0CE /* SimpleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleCell.h; sourceTree = "<group>"; };
+		940DC2BD180210750098C0CE /* SimpleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCell.m; sourceTree = "<group>"; };
+		940DC2BF180210D30098C0CE /* placeHolder.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeHolder.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +131,8 @@
 				940DC2931801FEE40098C0CE /* Main_iPad.storyboard */,
 				940DC2961801FEE40098C0CE /* ViewController.h */,
 				940DC2971801FEE40098C0CE /* ViewController.m */,
+				940DC2BC180210750098C0CE /* SimpleCell.h */,
+				940DC2BD180210750098C0CE /* SimpleCell.m */,
 				940DC2991801FEE40098C0CE /* Images.xcassets */,
 				940DC2851801FEE40098C0CE /* Supporting Files */,
 				940DC2B61801FEFB0098C0CE /* Slide.h */,
@@ -139,6 +146,7 @@
 		940DC2851801FEE40098C0CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				940DC2BF180210D30098C0CE /* placeHolder.jpeg */,
 				940DC2861801FEE40098C0CE /* SlideShow-Info.plist */,
 				940DC2871801FEE40098C0CE /* InfoPlist.strings */,
 				940DC28A1801FEE40098C0CE /* main.m */,
@@ -245,6 +253,7 @@
 				940DC29A1801FEE40098C0CE /* Images.xcassets in Resources */,
 				940DC2921801FEE40098C0CE /* Main_iPhone.storyboard in Resources */,
 				940DC2891801FEE40098C0CE /* InfoPlist.strings in Resources */,
+				940DC2C0180210D30098C0CE /* placeHolder.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +277,7 @@
 				940DC28B1801FEE40098C0CE /* main.m in Sources */,
 				940DC2B81801FEFB0098C0CE /* Slide.m in Sources */,
 				940DC2BB1801FF110098C0CE /* Slideshow.m in Sources */,
+				940DC2BE180210750098C0CE /* SimpleCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
